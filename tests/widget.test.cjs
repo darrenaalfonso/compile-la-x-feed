@@ -55,3 +55,9 @@ test('links unicode-offset entities without changing surrounding text',async()=>
   const r=await run(f);assert(r.nodes.some(n=>n.href==='https://t.co/a' && n.textContent==='example.com'));
   assert(r.host.textContent.includes('😀 example.com'));
 });
+
+test('decodes API text entities without creating markup',async()=>{
+  const f=fixture();f.posts[0].text='&lt;script&gt;alert(1)&lt;/script&gt; &amp; &gt;30';
+  const r=await run(f);assert(r.host.textContent.includes('<script>alert(1)</script> & >30'));
+  assert.equal(r.nodes.filter(n=>n.tag==='script').length,0);
+});
