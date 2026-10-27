@@ -56,8 +56,7 @@
     section.setAttribute('aria-label', 'Latest from Compile LA on X');
     const heading = element('header', undefined, 'clx-heading');
     const title = element('div');
-    title.append(element('span', 'AROUND LOS ANGELES', 'clx-eyebrow'), element('h2', 'The latest from Compile LA'));
-    const logo = link('', 'https://x.com/compilela', 'clx-logo');
+    title.append(element('h2', 'Curated from X'));    const logo = link('', 'https://x.com/compilela', 'clx-logo');
     logo.setAttribute('aria-label', 'Compile LA on X');
     logo.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933zm-1.29 19.49h2.039L6.487 3.24H4.3l13.31 17.403z"/></svg>';
     heading.append(title, logo);
