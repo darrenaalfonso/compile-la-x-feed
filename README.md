@@ -48,9 +48,10 @@ Run from the repository root:
 ```sh
 python3 -m unittest discover -s tests -v
 node --check public/widget.js
+node --test tests/widget.test.cjs
 ```
 
-The tests cover OAuth signing against a public known vector, account identity/visibility, empty and malformed feeds, latest-five selection, deduplication, withheld/sensitive posts and full-text edits. They do not confirm paid X access or deployment.
+The tests cover OAuth signing against a public known vector, account identity/visibility, empty and malformed feeds, latest-five selection, deduplication, withheld/sensitive posts and full-text edits. Six additional widget tests cover safe text rendering, stale/error fallback, missing targets, the five-card cap, open-tab expiry, malicious URLs/IDs and Unicode link offsets. They do not confirm paid X access or deployment.
 
 If X returns 401, check all four credentials belong to the same app/account; regenerate only if necessary and replace the matching GitHub secrets. For 402/403 check credits, app access, and permissions. For 429 wait and rerun later. A `400` mentioning fields may indicate a reference/account API mismatch; inspect X's console and current API docs before changing `post.fields` to the legacy spelling. Do not log tokens to diagnose failures.
 
