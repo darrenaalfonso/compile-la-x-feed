@@ -13,6 +13,9 @@
     a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
     return a;
   }
+  function decodedText(text) {
+    return text.replace(/&(amp|lt|gt|quot|apos);/g, (_, name) => ({amp: '&', lt: '<', gt: '>', quot: '"', apos: "'"})[name]);
+  }
   function textWithEntities(text, entities = {}) {
     const node = element('p', undefined, 'clx-text');
     const chars = Array.from(text);
@@ -33,18 +36,18 @@
     for (const e of spans.sort((a, b) => a.start - b.start)) {
       if (!Number.isInteger(e.start) || !Number.isInteger(e.end) ||
           e.start < cursor || e.end <= e.start || e.end > chars.length) continue;
-      node.append(document.createTextNode(chars.slice(cursor, e.start).join('')));
+      node.append(document.createTextNode(decodedText(chars.slice(cursor, e.start).join(''))));
       node.append(link(typeof e.label === 'string' ? e.label : chars.slice(e.start, e.end).join(''), e.href));
       cursor = e.end;
     }
-    node.append(document.createTextNode(chars.slice(cursor).join('')));
+    node.append(document.createTextNode(decodedText(chars.slice(cursor).join(''))));
     return node;
   }
   async function start() {
     let host = document.getElementById('compile-la-x-feed');
     if (!host && script.dataset.homepage === 'true' && location.pathname === '/') {
       host = element('div'); host.id = 'compile-la-x-feed';
-      const footer = document.querySelector('footer');
+      const footer = document.querySelector('footer.gh-footer') || Array.from(document.querySelectorAll('footer')).find(node => !node.closest('article') && !node.closest('a'));
       if (footer) footer.before(host); else document.body.append(host);
     }
     if (!host || host.dataset.loaded) return;
