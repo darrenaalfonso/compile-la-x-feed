@@ -1,0 +1,5 @@
+.env*
+__pycache__/
+public/feed.json
+public/*.tmp
+.DS_Store

@@ -1,0 +1,25 @@
+#compile-la-x-feed { width: min(1120px, 100%); margin: 48px auto; padding: 0 24px; box-sizing: border-box; }
+#compile-la-x-feed .clx { background: #FDFCF9; color: #002244; border-top: 4px solid #8F7359; padding: clamp(20px, 4vw, 44px); font: 16px/1.6 system-ui, sans-serif; }
+#compile-la-x-feed .clx * { box-sizing: border-box; }
+#compile-la-x-feed .clx-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 16px; }
+#compile-la-x-feed .clx h2 { color: #002244; font: 600 clamp(24px, 4vw, 34px)/1.2 Georgia, serif; margin: 8px 0 0; }
+#compile-la-x-feed .clx-eyebrow { color: #8F7359; letter-spacing: .13em; font-size: 11px; font-weight: 700; }
+#compile-la-x-feed .clx a { color: #002244; text-decoration: underline; text-underline-offset: 3px; }
+#compile-la-x-feed .clx a:hover { text-decoration-color: #007BFF; text-decoration-thickness: 2px; }
+#compile-la-x-feed .clx a:focus-visible { outline: 3px solid #007BFF; outline-offset: 4px; }
+#compile-la-x-feed .clx-logo { flex-shrink: 0; width: 26px; height: 26px; }
+#compile-la-x-feed .clx-logo svg { width: 100%; height: 100%; color: #000; }
+#compile-la-x-feed .clx-status { font-size: 12px; margin: 0 0 20px; }
+#compile-la-x-feed .clx-posts { display: grid; gap: 14px; }
+#compile-la-x-feed .clx-post { position: relative; background: #fff; border: 1px solid #ddd6ce; border-radius: 8px; padding: 22px; margin: 0; }
+#compile-la-x-feed .clx-cover { position: absolute; inset: 0; z-index: 0; border-radius: inherit; }
+#compile-la-x-feed .clx-post a:not(.clx-cover) { position: relative; z-index: 1; }
+#compile-la-x-feed .clx-author { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+#compile-la-x-feed .clx-author img { border-radius: 50%; width: 40px; height: 40px; margin: 0; object-fit: cover; }
+#compile-la-x-feed .clx-author span span { display: block; font-size: 13px; }
+#compile-la-x-feed .clx-author strong { font-size: 15px; }
+#compile-la-x-feed .clx-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 16px; line-height: 1.65; margin: 14px 0; pointer-events: none; }
+#compile-la-x-feed .clx-text a { pointer-events: auto; }
+#compile-la-x-feed .clx-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 12px; }
+#compile-la-x-feed .clx-follow { display: inline-block; margin-top: 24px; font-size: 14px; font-weight: 600; }
+@media(max-width: 520px) { #compile-la-x-feed { padding: 0 12px; margin: 28px auto; } #compile-la-x-feed .clx-post { padding: 16px; } }
